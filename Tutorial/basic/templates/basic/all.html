@@ -1,0 +1,7 @@
+{% if parameter %}
+    <ul>
+        {% for i in parameter %}
+            <li><a href="/basic/{{ i.id }}/">{{ i.contact_name }}</a><a href="/basic/delete/{{i.id}}">DELETE</a></li>
+        {% endfor %}
+    </ul>
+{% endif%}
