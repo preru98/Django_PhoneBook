@@ -27,7 +27,6 @@ def delete(request,contact_id):
     return all(request)
 
 def add(request):
-
     return render(request,'basic/add.html')
 
 def insert(request):
@@ -38,4 +37,23 @@ def insert(request):
     C1.save()
     return all(request)
 
-
+def fill(request,contact_id):
+    parameter=Contact.objects.get(pk=contact_id)
+    context={
+        'parameter':parameter
+    }
+    return render(request,'basic/fill.html',context)
+    
+def update(request,contact_id):
+    
+    name=request.POST['contact_name']
+    number=request.POST['contact_number']
+    email=request.POST['contact_email']
+    C1=Contact.objects.get(pk=contact_id)
+    C1.contact_name=name
+    C1.contact_number=number
+    C1.contact_email=email
+    C1.save()
+    return all(request)
+    
+    
